@@ -141,7 +141,7 @@
            HERO SECTION
         ------------------------------------------------------------------------- */
         .hero {
-            min-height: 85vh;
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -154,11 +154,12 @@
             flex-direction: column;
             align-items: center;
             gap: 50px;
-            max-width: 800px;
+            max-width: 1200px; /* 画像幅100%に合わせるため枠を拡張 */
             width: 100%;
         }
 
         .hero-text {
+            max-width: 800px;
             width: 100%;
         }
 
@@ -189,9 +190,10 @@
             text-align: center;
         }
 
+        /* 【変更】画像横幅を100%にし、縦幅をスタイリッシュに狭める */
         .hero-image-wrap {
             width: 100%;
-            height: 350px;
+            height: 260px; /* 350pxから260pxへ縮小 */
             border-radius: 4px;
             overflow: hidden;
             border: 1px solid var(--color-sub);
@@ -199,7 +201,7 @@
 
         @media (max-width: 768px) {
             .hero-text h1 { font-size: 1.8rem; }
-            .hero-image-wrap { height: 220px; }
+            .hero-image-wrap { height: 160px; } /* スマホ時も220pxから160pxへ縮小 */
         }
 
         /* -------------------------------------------------------------------------
@@ -360,7 +362,6 @@
             padding-bottom: 35px;
         }
 
-        /* 【追加・変更箇所】事業目的のリスク（箇条書き）のみ左寄せにする設定 */
         .about-purpose-list {
             text-align: left;         /* テキストを左寄せに */
             max-width: 600px;         /* 横に広がりすぎないよう幅を制限 */
@@ -371,6 +372,17 @@
         .about-purpose-list li {
             margin-bottom: 10px;      /* 行間の微調整（読みやすさ向上） */
             list-style-position: outside; /* 番号を外側に配置し、2行目以降もきれいに揃える */
+        }
+
+        /* お問い合わせリンクのカラー調整 */
+        .about-table td a {
+            color: var(--color-main);
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+        
+        .about-table td a:hover {
+            color: var(--color-accent);
         }
 
         /* -------------------------------------------------------------------------
@@ -601,7 +613,6 @@
                     <tr>
                         <th>事業目的</th>
                         <td>
-                            <!-- 変更箇所：class="about-purpose-list" を適用して左寄せ化 -->
                             <ol class="about-purpose-list">
                                 <li>企業の経営に関するコンサルティング業務、経営管理業務及び組織並びに人材マネジメント業務の受託</li>
                                 <li>企業のマーケティングに関する企画、立案、実行支援、広告に関する企画、制作、運用及び管理並びにこれらに関するコンサルティング業務</li>
@@ -616,6 +627,11 @@
                     <tr>
                         <th>附帯関連事業</th>
                         <td>前各号に附帯関連する一切の事業</td>
+                    </tr>
+                    <!-- 【追加】お問い合わせ先の行 -->
+                    <tr>
+                        <th>お問い合わせ</th>
+                        <td><a href="mailto:info@chimimoryo.jp">info@chimimoryo.jp</a></td>
                     </tr>
                 </table>
             </div>
