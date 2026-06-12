@@ -13,7 +13,7 @@
             --color-card-bg: #f5f0e8;  /* カード背景：さらに明るいトーンのベージュ */
             --color-sub: #D5C3AA;      /* サブカラー：落ち着いたニュアンスベージュ */
             --color-main: #867666;     /* メイン文字・枠線：深みのあるブラウングレー */
-            --color-accent: #E1B80D;   /* アクセント：気品のあるゴールド */
+            --color-accent: #E1B80D;   /* アクセント：気品のあるゴールド（黄色） */
             --font-sans: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
         }
 
@@ -149,13 +149,14 @@
             position: relative;
         }
 
+        /* ① 太字(700)・黄色(accent)に変更 */
         .opening-title {
             font-size: 3.5rem;
-            font-weight: 300;
+            font-weight: 700; 
             line-height: 1.5;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            color: var(--color-main);
+            color: var(--color-accent); 
         }
 
         /* 文字ごとのアニメーション遅延設定 */
@@ -204,7 +205,10 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 100px 0 100px 0;
+            padding: 100px 0;
+            max-width: 100% !important; /* ⑤ 画像を100%にするため幅の制限を解除 */
+            padding-left: 0 !important;
+            padding-right: 0 !important;
         }
 
         .hero-inner {
@@ -212,53 +216,62 @@
             flex-direction: column;
             align-items: center;
             gap: 50px;
-            max-width: 1200px; 
             width: 100%;
         }
 
         .hero-text {
-            max-width: 1000px; /* ② 横幅を800pxから1000pxに拡大 */
+            max-width: 1000px;
             width: 100%;
+            padding: 0 40px; /* 左右の余白を確保 */
         }
 
+        /* ② 英語タイトルを黄色・太字に変更 */
         .en-title {
             font-size: 0.75rem;
-            font-weight: 400;
+            font-weight: 700; 
             text-transform: uppercase;
             letter-spacing: 0.4em;
-            color: var(--color-main);
+            color: var(--color-accent); 
             display: block;
             margin-bottom: 20px;
             text-indent: 0.4em;
         }
 
+        /* ④ メインコピーの上下に余白（margin）を追加 */
         .hero-text h1 {
             font-size: 2.4rem;
             font-weight: 700;
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-top: 40px; 
+            margin-bottom: 50px; 
             letter-spacing: 0.15em;
         }
 
+        /* ③ 本文の文字サイズを0.95remから1.1remに拡大 */
         .hero-text p {
-            font-size: 0.95rem;
+            font-size: 1.1rem; 
             color: var(--color-main);
-            max-width: 900px; /* ② 横幅を600pxから900pxに拡大 */
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
         }
 
+        /* ⑤ 1枚目の画像を端末の横幅100%（両端まで届く）に修正 */
         .hero-image-wrap {
-            width: 100%;
-            height: 260px; 
-            border-radius: 4px;
+            width: 100vw; 
+            height: 350px; 
             overflow: hidden;
-            border: 1px solid var(--color-sub);
+            border-top: 1px solid var(--color-sub);
+            border-bottom: 1px solid var(--color-sub);
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         @media (max-width: 768px) {
-            .hero-text h1 { font-size: 1.8rem; }
-            .hero-image-wrap { height: 160px; } 
+            .hero-text { padding: 0 20px; }
+            .hero-text h1 { font-size: 1.8rem; margin-top: 25px; margin-bottom: 35px; }
+            .hero-image-wrap { height: 200px; } 
         }
 
         /* -------------------------------------------------------------------------
@@ -273,7 +286,6 @@
             margin-bottom: 80px;
         }
 
-        /* ③ 「理念」「事業内容」「会社概要」の文字サイズを1.6remから2.2remへ大きく変更 */
         .section-title {
             font-size: 2.2rem;
             font-weight: 700;
@@ -286,7 +298,7 @@
            CONCEPT SECTION
         ------------------------------------------------------------------------- */
         .concept-text-wrap {
-            max-width: 950px; /* ② 横幅を650pxから950pxに拡大 */
+            max-width: 950px;
             margin: 0 auto;
         }
 
@@ -297,16 +309,24 @@
             font-weight: 700;
         }
 
+        /* ③ 「なぜ、あなたのストーリー〜」の見出しサイズを本文と同じ1.1rem（太字）に指定 */
+        .concept-text-wrap h2 {
+            font-size: 1.1rem; 
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* ③ 本文の文字サイズを1.1remに拡大 */
         .concept-body {
-            font-size: 0.95rem;
+            font-size: 1.1rem; 
         }
 
         /* -------------------------------------------------------------------------
-           SERVICES SECTION (④ PC:2枚横並び / SP:1枚縦並び)
+           SERVICES SECTION (PC:2枚横並び / SP:1枚縦並び)
         ------------------------------------------------------------------------- */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* ④ パソコンの時は固定で2枚ずつ横並び */
+            grid-template-columns: repeat(2, 1fr);
             gap: 40px;
             width: 100%;
         }
@@ -362,8 +382,9 @@
             letter-spacing: 0.1em;
         }
 
+        /* ③ カード内の本文の文字サイズを1.1remに拡大 */
         .service-card p {
-            font-size: 0.85rem;
+            font-size: 1.1rem; 
             color: var(--color-main);
             text-align: center; 
             line-height: 1.9;
@@ -371,7 +392,7 @@
 
         @media (max-width: 768px) {
             .services-grid {
-                grid-template-columns: 1fr; /* ④ スマホの時は1つずつ縦並び */
+                grid-template-columns: 1fr;
                 gap: 30px;
             }
             .service-text-box { padding: 30px 20px; }
@@ -381,7 +402,7 @@
            ABOUT SECTION (MINIMAL CENTERED TABLE)
         ------------------------------------------------------------------------- */
         .about-inner {
-            max-width: 1000px; /* ② 横幅を800pxから1000pxに拡大 */
+            max-width: 1000px;
             margin: 0 auto;
             width: 100%;
         }
@@ -399,9 +420,10 @@
             border-top: 1px solid var(--color-sub);
         }
 
+        /* ③ 会社概要の表内の文字サイズを1.1remに拡大 */
         .about-table th, .about-table td {
             padding: 30px 20px;
-            font-size: 0.95rem;
+            font-size: 1.1rem; 
             text-align: center; 
         }
 
@@ -423,7 +445,7 @@
 
         .about-purpose-list {
             text-align: left;         
-            max-width: 900px;         /* ② 横幅を600pxから900pxに拡大 */
+            max-width: 900px;         
             margin: 0 auto;           
             padding-left: 20px;       
         }
@@ -573,10 +595,10 @@
                 <p class="concept-lead">
                     「売れる」を分析し、<br>「愛されるブランド」を設計する
                 </p>
-                <h2 style="margin-bottom: 20px;">なぜ、あなたのストーリーや商品が届かないのか。</h2>
+                <h2>なぜ、あなたのストーリーや商品が届かないのか。</h2>
                 <p class="concept-body">
                     品質にこだわり、妥協せず、いいものを作ったのに売れない。<br>残念ながら、世の中にはそんなブランドが数多く存在しています。
-                    <br><br>そして多くの人は、その理由がわからず<br>大切なブランドの成長を諦めてしまいます。
+                    <br><br>Scanningそして多くの人は、その理由がわからず<br>大切なブランドの成長を諦めてしまいます。
                     <br><br>私たちが目指すのは、自らの実践と経験にもとづいた確かな戦略と実行力で、そうしたブランドの想いを込めた商品を、正しい人に正しく届けること。
                     <br><br>ただ商品を売るだけのマーケティングや、顧客の想いにそぐわないコンサルティングではありません。<br>ブランドの「こだわり」を、消費者の「熱狂」に変え、長く愛されるブランドを築きます。
                 </p>
@@ -598,6 +620,7 @@
                         <div class="no-image"></div>
                     </div>
                     <div class="service-text-box">
+                        <span class="service-num">01</span>
                         <h3>D2Cコンサルティング</h3>
                         <p>「なぜ売れない？」を解き明かし、次の成長ルートを導き出す。
                             <br><br>商品力はあるのに、なぜか届かない。<br>その壁を突破するには「客観的な視点」と「確かな戦略」が必要です。
@@ -611,6 +634,7 @@
                         <div class="no-image"></div>
                     </div>
                     <div class="service-text-box">
+                        <span class="service-num">02</span>
                         <h3>マーケティング・広告運用</h3>
                         <p>やみくもに予算を割いてただ広告を打つだけでは、消費者の心は動きません。
                             <br><br>受け手がブランドから何を感じ、どう動くのか——徹底したインサイト分析を基に、ブランドの想いを「響くメッセージ」へと変換します。
@@ -624,6 +648,7 @@
                         <div class="no-image"></div>
                     </div>
                     <div class="service-text-box">
+                        <span class="service-num">03</span>
                         <h3>ECウェブサイト構築サポート</h3>
                         <p>ファンを育てるための「売れる店舗」を創る。
                             <br><br>ウェブサイトは、ブランドの世界観を伝える最大の舞台です。
@@ -638,9 +663,10 @@
                         <div class="no-image"></div>
                     </div>
                     <div class="service-text-box">
+                        <span class="service-num">04</span>
                         <h3>D2Cブランド運営</h3>
                         <p>物流からCRMまで、ブランドの未来を丸ごと支える。
-                            <br><br>商品開発から物流管理、 tenderそして顧客との絆を深めるCRMまで、バックエンドの煩雑な業務こそ、ブランド成長の要です。
+                            <br><br>商品開発から物流管理、そして顧客との絆を深めるCRMまで、バックエンドの煩雑な業務こそ、ブランド成長の要です。
                             <br>私たちは実務の専門家として、泥臭いオペレーションの細部までを徹底的に最適化。
                             <br>「ブランドの想いを届ける」までの道のりを、ゼロから作り上げます。</p>
                     </div>
