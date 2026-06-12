@@ -206,7 +206,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 60px 0 0 0; /* 画像移動に伴い下部余白を調整 */
+            padding: 60px 0 0 0; 
             width: 100%;
             max-width: 100% !important; 
             padding-left: 0 !important;
@@ -225,7 +225,7 @@
             width: 100%;
             padding: 0 40px; 
             margin-top: -20px; 
-            margin-bottom: 100px; /* 文字の塊の最下部と、その下に移動してきた画像との最適な余白 */
+            margin-bottom: 100px; 
         }
 
         /* メインコピーの上下余白 */
@@ -247,31 +247,32 @@
             text-align: center;
         }
 
-       /* 塊の最下部、かつCONCEPTの文字の中間に移動した幅100%の画像コンテナ */
-　　　　　.hero-image-wrap {
-    width: 100vw; /* 端末の画面の横幅100%に指定 */
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%); /* 親要素を無視して画面中央にフィットさせる */
-    height: 90px; /* ★縦幅を350pxから1/4の「90px」に変更 */
-    overflow: hidden;
-    border-top: 1px solid var(--color-sub);
-    border-bottom: 1px solid var(--color-sub);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 140px;
-}
+        /* 修正：全角スペースや崩れたコメントアウトを排除 */
+        .hero-image-wrap {
+            width: 100vw; 
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%); 
+            height: 90px; 
+            overflow: hidden;
+            border-top: 1px solid var(--color-sub);
+            border-bottom: 1px solid var(--color-sub);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 140px;
+        }
 
         @media (max-width: 768px) {
-    .hero { padding: 40px 0 0 0; }
-    .hero-text { padding: 0 20px; margin-top: 0; margin-bottom: 60px; }
-    .hero-text h1 { font-size: 1.8rem; margin-top: 25px; margin-bottom: 35px; }
-    .hero-image-wrap { 
-        height: 60px; /* ★スマホ時の縦幅を200pxから約1/4の「60px」に変更 */
-        margin-bottom: 90px; 
-    } 
-}
+            .hero { padding: 40px 0 0 0; }
+            .hero-text { padding: 0 20px; margin-top: 0; margin-bottom: 60px; }
+            .hero-text h1 { font-size: 1.8rem; margin-top: 25px; margin-bottom: 35px; }
+            .hero-image-wrap { 
+                height: 60px; 
+                margin-bottom: 90px; 
+            } 
+        }
+
         /* -------------------------------------------------------------------------
            SECTION GENERAL
         ------------------------------------------------------------------------- */
@@ -283,7 +284,7 @@
         /* CONCEPTセクションのみ上の区切り線を削除するためのクラス */
         .section.no-top-border {
             border-top: none;
-            padding-top: 0; /* 画像の下に直接配置されるため上部パディングをリセット */
+            padding-top: 0; 
         }
 
         .section-header {
@@ -592,9 +593,9 @@
                     <p>私たちは、D2Cブランドを立ち上げ、成長を加速させる戦略的パートナーです。<br>単なるコンサルティングにとどまらず、商品開発・マーケティングの戦略設計から、EC運営、物流最適化、CRMによるファン醸成まで、チームの一員として御社のブランドに携わり、その歩みに並走します。</p>
                 </div>
                 <!-- 塊の真下、かつCONCEPTの中間に配置された幅100%の画像 -->
-               <div class="hero-image-wrap fade-in-element">
-   　　　　　　　　　　 <img src="01.jpg" alt="メインビジュアル" style="width: 100%; height: 100%; object-fit: cover;">
-　　　　　　　　　　</div>
+                <div class="hero-image-wrap fade-in-element">
+                    <img src="01.jpg" alt="メインビジュアル" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
             </div>
         </section>
 
@@ -631,7 +632,7 @@
                 <div class="service-card fade-in-element">
                     <div class="service-img-box">
                          <img src="01-2.jpg" alt="D2Cコンサルティング" style="width: 100%; height: 100%; object-fit: cover;">
-　　　　　　　　　　　　　 </div>
+                    </div>
                     <div class="service-text-box">
                         <h3>D2Cコンサルティング</h3>
                         <p>「なぜ売れない？」を解き明かし、次の成長ルートを導き出す。
@@ -675,7 +676,7 @@
                     <div class="service-text-box">
                         <h3>D2Cブランド運営</h3>
                         <p>物流からCRMまで、ブランドの未来を丸ごと支える。
-                            <br><br>商品開発から物流管理、そして顧客との絆を深めるCRMまで、バックエンドの煩雑な業務こそ、ブランド成長の要です。
+                            <br><br>商品開発から物流管理、ledgerそして顧客との絆を深めるCRMまで、バックエンドの煩雑な業務こそ、ブランド成長の要です。
                             <br>私たちは実務の専門家として、泥臭いオペレーションの細部までを徹底的に最適化。
                             <br>「ブランドの想いを届ける」までの道のりを、ゼロから作り上げます。</p>
                     </div>
