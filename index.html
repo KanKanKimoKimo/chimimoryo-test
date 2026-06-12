@@ -143,6 +143,739 @@
         .opening-hero {
             height: 100vh;
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* ① 位置調整のため上部を基準に変更 */
+            padding-top: 43vh;           /* ① 文字の位置を少し下げる（43%の位置から開始） */
+            background-color: var(--color-bg);
+            position: relative;
+        }
+
+        .opening-title {
+            font-size: 3.5rem;
+            font-weight: 700; 
+            line-height: 1.5;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--color-accent); 
+        }
+
+        /* 文字ごとのアニメーション遅延設定 */
+        .opening-title span {
+            display: block;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+        }
+        .opening-title .word-1 { animation-delay: 0.2s; }
+        .opening-title .word-2 { animation-delay: 0.5s; }
+        .opening-title .word-3 { animation-delay: 0.8s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* スクロールを促す案内文 */
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            opacity: 0.6;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: translateY(0); }
+            50% { opacity: 0.7; transform: translateY(5px); }
+        }
+
+        @media (max-width: 768px) {
+            .opening-hero { padding-top: 40vh; } /* スマホ用の位置微調整 */
+            .opening-title { font-size: 2.2rem; }
+        }
+
+        /* -------------------------------------------------------------------------
+           HERO SECTION (MAIN CONTENT START)
+        ------------------------------------------------------------------------- */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 0 140px 0; /* ② セクション自体の余白を調整（上部を狭く、下部を広く） */
+            width: 100%;
+            max-width: 100% !important; 
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        .hero-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 100px; /* ② テキストと画像の間の余白を大きく広げて、画像の位置を下に */
+            width: 100%;
+        }
+
+        .hero-text {
+            max-width: 1000px;
+            width: 100%;
+            padding: 0 40px; 
+            margin-top: -20px; /* ② 位置を少し上にするためのネガティブマージン */
+        }
+
+        /* 英語タイトル（CONCEPTなど）の文字サイズ */
+        .en-title {
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: var(--color-accent); 
+            display: block;
+            margin-bottom: 20px;
+            text-indent: 0.4em;
+        }
+
+        /* メインコピーの上下余白 */
+        .hero-text h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            line-height: 1.6;
+            margin-top: 40px; 
+            margin-bottom: 50px; 
+            letter-spacing: 0.15em;
+        }
+
+        /* 本文の文字サイズ */
+        .hero-text p {
+            font-size: 1.1rem; 
+            color: var(--color-main);
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* 幅100%・中央寄せを強固にした画像コンテナ */
+        .hero-image-wrap {
+            width: 100%;
+            max-width: 100%;
+            height: 350px; 
+            overflow: hidden;
+            border-top: 1px solid var(--color-sub);
+            border-bottom: 1px solid var(--color-sub);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 40px 0 90px 0; }
+            .hero-inner { gap: 60px; } /* スマホ用のテキストと画像の間隔 */
+            .hero-text { padding: 0 20px; margin-top: 0; }
+            .hero-text h1 { font-size: 1.8rem; margin-top: 25px; margin-bottom: 35px; }
+            .hero-image-wrap { height: 200px; } 
+            .en-title { font-size: 1.2rem; } 
+        }
+
+        /* -------------------------------------------------------------------------
+           SECTION GENERAL
+        ------------------------------------------------------------------------- */
+        .section {
+            padding: 140px 0;
+            border-top: 1px solid var(--color-sub);
+        }
+
+        .section-header {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-indent: 0.25em;
+            margin-top: 5px;
+        }
+
+        /* -------------------------------------------------------------------------
+           CONCEPT SECTION
+        ------------------------------------------------------------------------- */
+        .concept-text-wrap {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .concept-lead {
+            font-size: 1.4rem;
+            line-height: 2.2;
+            margin-bottom: 45px;
+            font-weight: 700;
+        }
+
+        .concept-text-wrap h2 {
+            font-size: 1.1rem; 
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .concept-body {
+            font-size: 1.1rem; 
+        }
+
+        /* -------------------------------------------------------------------------
+           SERVICES SECTION (PC:2枚横並び / SP:1枚縦並び)
+        ------------------------------------------------------------------------- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            width: 100%;
+        }
+
+        .service-card {
+            background-color: var(--color-card-bg);
+            border: 1px solid var(--color-sub);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                        box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                        border-color 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-accent);
+            box-shadow: 0 15px 40px rgba(134, 118, 102, 0.15);
+        }
+
+        .service-card:hover .no-image {
+            opacity: 0.9;
+        }
+
+        .service-img-box {
+            width: 100%;
+            height: 200px;
+            border-bottom: 1px solid var(--color-sub);
+        }
+
+        .service-text-box {
+            padding: 45px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ③ カード内の太字見出し（D2Cコンサルティング等）の文字サイズを1.2remから1.4remへ大きく変更 */
+        .service-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 22px;
+            letter-spacing: 0.1em;
+        }
+
+        .service-card p {
+            font-size: 1.1rem; 
+            color: var(--color-main);
+            text-align: center; 
+            line-height: 1.9;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .service-text-box { padding: 35px 20px; }
+            .service-card h3 { font-size: 1.25rem; } /* スマホ側もバランス良く微調整 */
+        }
+
+        /* -------------------------------------------------------------------------
+           ABOUT SECTION (MINIMAL CENTERED TABLE)
+        ------------------------------------------------------------------------- */
+        .about-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .about-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .about-table tr {
+            border-bottom: 1px solid var(--color-sub);
+        }
+
+        .about-table tr:first-child {
+            border-top: 1px solid var(--color-sub);
+        }
+
+        .about-table th, .about-table td {
+            padding: 30px 20px;
+            font-size: 1.1rem; 
+            text-align: center; 
+        }
+
+        .about-table th {
+            width: 100%;
+            display: block; 
+            font-weight: 700;
+            color: var(--color-accent);
+            letter-spacing: 0.2em;
+            padding-bottom: 10px;
+        }
+
+        .about-table td {
+            width: 100%;
+            display: block;
+            padding-top: 10px;
+            padding-bottom: 35px;
+        }
+
+        .about-purpose-list {
+            text-align: left;         
+            max-width: 900px;         
+            margin: 0 auto;           
+            padding-left: 20px;       
+        }
+
+        .about-purpose-list li {
+            margin-bottom: 10px;      
+            list-style-position: outside; 
+        }
+
+        .about-table td a {
+            color: var(--color-main);
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+        
+        .about-table td a:hover {
+            color: var(--color-accent);
+        }
+
+        /* -------------------------------------------------------------------------
+           FOOTER
+        ------------------------------------------------------------------------- */
+        footer {
+            background-color: var(--color-main);
+            color: var(--color-bg);
+            padding: 80px 0 50px 0;
+            font-size: 0.75rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            margin-bottom: 10px;
+            color: var(--color-bg);
+        }
+
+        .footer-brand p {
+            color: var(--color-sub);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: var(--color-sub);
+            text-decoration: none;
+            transition: color 0.3s;
+            letter-spacing: 0.15em;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .copyright {
+            color: var(--color-sub);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            border-top: 1px solid rgba(213, 195, 170, 0.2);
+            padding-top: 30px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .footer-links ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* -------------------------------------------------------------------------
+           ANIMATION EFFECT (FADE-IN ON SCROLL)
+        ------------------------------------------------------------------------- */
+        .fade-in-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.215, 0.610, 0.355, 1.000), 
+                        transform 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        }
+
+        .fade-in-element.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="site-header">
+        <div class="header-inner">
+            <a href="#" class="logo">株式会社チミモウリョウ</a>
+            <nav>
+                <ul>
+                    <li><a href="#concept">Concept</a></li>
+                    <li><a href="#services">Business</a></li>
+                    <li><a href="#about">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- WELCOME TO CHIMIMORYO オープニングアニメーションエリア -->
+    <div class="opening-hero">
+        <h1 class="opening-title">
+            <span class="word-1">WELCOME</span>
+            <span class="word-2">TO</span>
+            <span class="word-3">CHIMIMORYO</span>
+        </h1>
+    </div>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="hero-inner">
+                <!-- ② テキスト位置を少し上へ配置調整 -->
+                <div class="hero-text fade-in-element">
+                    <h1>想いを、売れるカタチにする。</h1>
+                    <p>私たちは、D2Cブランドを立ち上げ、成長を加速させる戦略的パートナーです。<br>単なるコンサルティングにとどまらず、商品開発・マーケティングの戦略設計から、EC運営、物流最適化、CRMによるファン醸成まで、チームの一員として御社のブランドに携わり、その歩みに並走します。</p>
+                </div>
+                <!-- ② 下部に余白を広げて位置を下げた、幅100%の画像 -->
+                <div class="hero-image-wrap fade-in-element">
+                    <div class="no-image"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONCEPT SECTION -->
+        <section class="section wrapper" id="concept">
+            <div class="section-header fade-in-element">
+                <span class="en-title">Concept</span>
+                <h2 class="section-title">理念</h2>
+            </div>
+            <div class="concept-text-wrap fade-in-element">
+                <p class="concept-lead">
+                    「売れる」を分析し、<br>「愛されるブランド」を設計する
+                </p>
+                <h2>なぜ、あなたのストーリーや商品が届かないのか。</h2>
+                <p class="concept-body">
+                    品質にこだわり、妥協せず、いいものを作ったのに売れない。<br>残念ながら、世の中にはそんなブランドが数多く存在しています。
+                    <br><br>そして多くの人は、その理由がわからず<br>大切なブランドの成長を諦めてしまいます。
+                    <br><br>私たちが目指すのは、自らの実践と経験にもとづいた確かな戦略と実行力で、そうしたブランドの想いを込めた商品を、正しい人に正しく届けること。
+                    <br><br>ただ商品を売るだけのマーケティングや、顧客の想いにそぐわないコンサルティングではありません。<br>ブランドの「こだわり」を、消費者の「熱狂」に変え、長く愛されるブランドを築きます。
+                </p>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section class="section wrapper" id="services">
+            <div class="section-header fade-in-element">
+                <span class="en-title">Our Business</span>
+                <h2 class="section-title">事業内容</h2>
+            </div>
+
+            <div class="services-grid">
+                
+                <!-- Card 01 (③ 太字タイトルの文字サイズを拡大) -->
+                <div class="service-card fade-in-element">
+                    <div class="service-img-box">
+                        <div class="no-image"></div>
+                    </div>
+                    <div class="service-text-box">
+                        <h3>D2Cコンサルティング</h3>
+                        <p>「なぜ売れない？」を解き明かし、次の成長ルートを導き出す。
+                            <br><br>商品力はあるのに、なぜか届かない。<br>その壁を突破するには「客観的な視点」と「確かな戦略」が必要です。
+                            <br>私たちは、商品設計・マーケティング施策・CRM戦略などにひそむ問題を特定し、ブランドが本来持っているポテンシャルを最大限に引き出すための、再現性の高い成長戦略を設計します。</p>
+                    </div>
+                </div>
+
+                <!-- Card 02 (③ 太字タイトルの文字サイズを拡大) -->
+                <div class="service-card fade-in-element">
+                    <div class="service-img-box">
+                        <div class="no-image"></div>
+                    </div>
+                    <div class="service-text-box">
+                        <h3>マーケティング・広告運用</h3>
+                        <p>やみくもに予算を割いてただ広告を打つだけでは、消費者の心は動きません。
+                            <br><br>受け手がブランドから何を感じ、どう動くのか——徹底したインサイト分析を基に、ブランドの想いを「響くメッセージ」へと変換します。
+                            <br>クリエイティブ制作から運用・改善まで、確かな数値に基づいた戦略で、ブランドの価値を正しく消費者へ届けます。</p>
+                    </div>
+                </div>
+
+                <!-- Card 03 (③ 太字タイトルの文字サイズを拡大) -->
+                <div class="service-card fade-in-element">
+                    <div class="service-img-box">
+                        <div class="no-image"></div>
+                    </div>
+                    <div class="service-text-box">
+                        <h3>ECウェブサイト構築サポート</h3>
+                        <p>ファンを育てるための「売れる店舗」を創る。
+                            <br><br>ウェブサイトは、ブランドの世界観を伝える最大の舞台です。
+                            <br>消費者目線での使いやすさ（UI/UX）、ブランドの物語が伝わる導線設計と最適化をワンストップでサポート。
+                            <br>オープン後の「売れ続ける仕組み」までを見据えた、持続可能なEC基盤を共に構築します。</p>
+                    </div>
+                </div>
+
+                <!-- Card 04 (③ 太字タイトルの文字サイズを拡大) -->
+                <div class="service-card fade-in-element">
+                    <div class="service-img-box">
+                        <div class="no-image"></div>
+                    </div>
+                    <div class="service-text-box">
+                        <h3>D2Cブランド運営</h3>
+                        <p>物流からCRMまで、ブランドの未来を丸ごと支える。
+                            <br><br>商品開発から物流管理、そして顧客との絆を深めるCRMまで、バックエンドの煩雑な業務こそ、ブランド成長の要です。
+                            <br>私たちは実務の専門家として、泥臭いオペレーションの細部までを徹底的に最適化。
+                            <br>「ブランドの想いを届ける」までの道のりを、ゼロから作り上げます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section class="section wrapper" id="about">
+            <div class="section-header fade-in-element">
+                <span class="en-title">Company Profile</span>
+                <h2 class="section-title">会社概要</h2>
+            </div>
+            <div class="about-inner fade-in-element">
+                <table class="about-table">
+                    <tr>
+                        <th>会社名</th>
+                        <td>株式会社チミモウリョウ</td>
+                    </tr>
+                    <tr>
+                        <th>事業内容</th>
+                        <td>
+                            <ol class="about-purpose-list">
+                                <li>企業の経営に関するコンサルティング業務、経営管理業務及び組織並びに人材マネジメント業務の受託</li>
+                                <li>企業のマーケティングに関する企画、立案、実行支援、広告に関する企画、制作、運用及び管理並びにこれらに関するコンサルティング業務</li>
+                                <li>EC（電子商取引）サイト、その他各種ウェブサイト及びEC モールに関する企画、制作、販売、配備、運営及び管理並びにこれらに付随するコンサルティング業務</li>
+                                <li>企業の物流及び生産管理に関するコンサルティング業務並びにこれらに付随する受託業務</li>
+                                <li>アイデアの商品化に関する情報提供サービス及びコンサルティング業務</li>
+                                <li>企業の商品及びサービスに関する営業代行業務</li>
+                                <li>企業の顧客関係管理（CRM）に関する戦略設計、改善、指導及び運用に関する業務</li>
+                            </ol>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>お問い合わせ先</th>
+                        <td><a href="mailto:info@chimimoryo.jp">info@chimimoryo.jp</a></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="wrapper">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <h4>株式会社チミモウリョウ</h4>
+                    <p>CHIMIMOURYO CO., LTD.</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#concept">Concept</a></li>
+                        <li><a href="#services">Business</a></li>
+                        <li><a href="#about">Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 CHIMIMOURYO CO., LTD. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR INTERACTION & ANIMATION -->
+    <script>
+        // 1. Scroll Fade-In Effect (Intersection Observer)
+        document.addEventListener("DOMContentLoaded", function() {
+            const fadeElements = document.querySelectorAll('.fade-in-element');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            fadeElements.forEach(el => observer.observe(el));
+        });
+
+        // 2. Smart Header Hide/Show on Scroll
+        let lastScrollTop = 0;
+        const header = document.getElementById('site-header');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 150) {
+                header.classList.add('hide');
+            } else {
+                header.classList.remove('hide');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
+    </script>
+</body>
+</html>            line-height: 2;
+            letter-spacing: 0.15em;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            text-align: center; /* すべての要素を基本的に中央寄せ */
+        }
+
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        @media (max-width: 768px) {
+            .wrapper {
+                padding: 0 20px;
+            }
+        }
+
+        /* -------------------------------------------------------------------------
+           PLACEHOLDER IMAGE (NO IMAGE)
+        ------------------------------------------------------------------------- */
+        .no-image {
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-sub);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.7;
+            transition: opacity 0.5s ease;
+        }
+
+        .no-image::before {
+            content: "NO IMAGE";
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.4em;
+            color: var(--color-main);
+            text-indent: 0.4em;
+        }
+
+        /* -------------------------------------------------------------------------
+           HEADER
+        ------------------------------------------------------------------------- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(234, 226, 214, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-sub);
+            transition: transform 0.4s ease;
+        }
+
+        header.hide {
+            transform: translateY(-100%);
+        }
+
+        .header-inner {
+            display: flex;
+            flex-direction: column; /* ヘッダー内も中央寄せ */
+            align-items: center;
+            justify-content: center;
+            padding: 25px 20px;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-main);
+            text-decoration: none;
+            letter-spacing: 0.3em;
+            text-indent: 0.3em;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-main);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 500;
+            opacity: 0.7;
+            transition: opacity 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 1;
+            color: var(--color-accent);
+        }
+
+        /* -------------------------------------------------------------------------
+           OPENING TEXT ANIMATION SECTION
+        ------------------------------------------------------------------------- */
+        .opening-hero {
+            height: 100vh;
+            display: flex;
             align-items: center;
             justify-content: center;
             background-color: var(--color-bg);
