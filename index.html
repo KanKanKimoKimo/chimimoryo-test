@@ -6,7 +6,7 @@
     <title>株式会社チミモウリョウ | CHIMIMOURYO CO., LTD.</title>
     <style>
         /* -------------------------------------------------------------------------
-           COLOR PALETTE & VARIABLES (明確な配色定義)
+           COLOR PALETTE & VARIABLES
         ------------------------------------------------------------------------- */
         :root {
             /* 背景色 */
@@ -14,18 +14,15 @@
             --color-card-bg: #F5F0E8;  /* カード背景：さらに明るいトーンのベージュ */
             --color-sub: #D5C3AA;      /* 枠線・サブ要素：落ち着いたニュアンスベージュ */
 
-            /* 文字色（明確な指定） */
+            /* 文字色 */
             --color-main: #2C2621;     /* メイン文字：深みのある墨色（高い可読性と高級感） */
             --color-muted: #5F5246;    /* サブ文字・本文：少しトーンを落としたブラウングレー */
             --color-accent: #C5A023;   /* アクセント：気品と視認性を両立した深みのあるゴールド */
             --color-link-hover: #A38216; /* リンクホバー時：濃いゴールド */
             --color-white: #FFFFFF;    /* ホワイト */
 
-            /* フォントファミリー（明確な指定） */
-            /* 全体：美しさと品格を併せ持つ「遊明朝」をベースにした和モダンな指定 */
-            --font-serif: "Times New Roman", "Yu Mincho", "遊明朝", "MS Mincho", serif;
-            /* 英字・モダン要素：洗練されたクリーンなサンセリフ指定 */
-            --font-sans: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            /* フォントファミリー（すべて洗練されたゴシック体・サンセリフに統一） */
+            --font-sans: "Helvetica Neue", Arial, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif;
         }
 
         /* -------------------------------------------------------------------------
@@ -42,11 +39,11 @@
         }
 
         body {
-            font-family: var(--font-serif); /* メインフォントを明朝体に設定 */
+            font-family: var(--font-sans); /* メインフォントをクリーンなゴシック体に設定 */
             background-color: var(--color-bg);
-            color: var(--color-main); /* 明確なメイン文字色 */
-            line-height: 2.1;
-            letter-spacing: 0.18em;
+            color: var(--color-main);
+            line-height: 2.0;
+            letter-spacing: 0.15em;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             text-align: center; /* すべての要素を基本的に中央寄せ */
@@ -82,9 +79,8 @@
 
         .no-image::before {
             content: "NO IMAGE";
-            font-family: var(--font-sans);
             font-size: 0.75rem;
-            font-weight: 400;
+            font-weight: 500;
             letter-spacing: 0.4em;
             color: var(--color-main);
             text-indent: 0.4em;
@@ -119,13 +115,12 @@
         }
 
         .logo {
-            font-family: var(--font-serif);
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--color-main);
             text-decoration: none;
-            letter-spacing: 0.3em;
-            text-indent: 0.3em;
+            letter-spacing: 0.25em;
+            text-indent: 0.25em;
         }
 
         nav ul {
@@ -135,11 +130,10 @@
         }
 
         nav a {
-            font-family: var(--font-sans); /* ナビゲーションは視認性の高いゴシック */
             text-decoration: none;
             color: var(--color-muted);
             font-size: 0.75rem;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
             font-weight: 600;
             opacity: 0.8;
@@ -166,16 +160,14 @@
         }
 
         .opening-title {
-            font-family: var(--font-sans); /* 力強いモダンなゴシック */
             font-size: 3.5rem;
-            font-weight: 700; 
-            line-height: 1.5;
-            letter-spacing: 0.3em;
+            font-weight: 800; /* ゴシック体の力強さを活かすウェイト */
+            line-height: 1.4;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
             color: var(--color-accent); 
         }
 
-        /* 文字ごとのアニメーション遅延設定 */
         .opening-title span {
             display: block;
             opacity: 0;
@@ -193,16 +185,15 @@
             }
         }
 
-        /* スクロールを促す案内文 */
         .scroll-hint {
             position: absolute;
             bottom: 40px;
-            font-family: var(--font-sans);
             font-size: 0.75rem;
             letter-spacing: 0.3em;
             color: var(--color-muted);
             opacity: 0.6;
             animation: pulse 2s infinite;
+            font-weight: 600;
         }
 
         @keyframes pulse {
@@ -245,23 +236,20 @@
             margin-bottom: 100px; 
         }
 
-        /* メインコピーの上下余白 */
         .hero-text h1 {
-            font-family: var(--font-serif);
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            line-height: 1.7;
+            line-height: 1.6;
             color: var(--color-main);
             margin-top: 40px; 
             margin-bottom: 50px; 
-            letter-spacing: 0.18em;
+            letter-spacing: 0.12em;
         }
 
-        /* 本文の文字サイズ */
         .hero-text p {
-            font-family: var(--font-serif);
-            font-size: 1.1rem; 
-            color: var(--color-muted); /* 本文は少しトーンを抑えて可読性を担保 */
+            font-size: 1.05rem; 
+            color: var(--color-muted); /* 読みやすいように少しだけ線の細いグレーに調整 */
+            font-weight: 400;
             max-width: 900px;
             margin: 0 auto;
             text-align: center;
@@ -286,7 +274,7 @@
         @media (max-width: 768px) {
             .hero { padding: 40px 0 0 0; }
             .hero-text { padding: 0 20px; margin-top: 0; margin-bottom: 60px; }
-            .hero-text h1 { font-size: 1.8rem; margin-top: 25px; margin-bottom: 35px; }
+            .hero-text h1 { font-size: 1.65rem; margin-top: 25px; margin-bottom: 35px; }
             .hero-image-wrap { 
                 height: 120px; 
                 margin-bottom: 90px; 
@@ -304,7 +292,6 @@
             border-top: 1px solid var(--color-sub);
         }
 
-        /* CONCEPTセクションのみ上の区切り線を削除するためのクラス */
         .section.no-top-border {
             border-top: none;
             padding-top: 0; 
@@ -315,30 +302,27 @@
         }
 
         .section-title {
-            font-family: var(--font-serif);
-            font-size: 2.2rem;
+            font-size: 2.0rem;
             font-weight: 700;
             color: var(--color-main);
-            letter-spacing: 0.25em;
-            text-indent: 0.25em;
+            letter-spacing: 0.2em;
+            text-indent: 0.2em;
             margin-top: 5px;
         }
 
-        /* 英語タイトル（CONCEPT、OUR BUSINESS、COMPANY PROFILE） */
         .en-title {
-            font-family: var(--font-sans); /* 英語タイトルはすっきりしたゴシック体 */
-            font-size: 1.35rem; 
+            font-size: 1.25rem; 
             font-weight: 700; 
             text-transform: uppercase;
-            letter-spacing: 0.4em;
-            color: var(--color-accent); /* ゴールドのアクセント文字色 */
+            letter-spacing: 0.35em;
+            color: var(--color-accent); 
             display: block;
-            margin-bottom: 20px;
-            text-indent: 0.4em;
+            margin-bottom: 15px;
+            text-indent: 0.35em;
         }
 
         @media (max-width: 768px) {
-            .en-title { font-size: 1.15rem; } 
+            .en-title { font-size: 1.1rem; } 
             .section { padding: 90px 0; }
             .section.no-top-border { padding-top: 0; }
         }
@@ -352,26 +336,25 @@
         }
 
         .concept-lead {
-            font-family: var(--font-serif);
-            font-size: 1.45rem;
-            line-height: 2.3;
+            font-size: 1.4rem;
+            line-height: 2.1;
             color: var(--color-main);
             margin-bottom: 55px;
             font-weight: 700;
+            letter-spacing: 0.12em;
         }
 
         .concept-text-wrap h2 {
-            font-family: var(--font-serif);
-            font-size: 1.25rem; 
+            font-size: 1.15rem; 
             font-weight: 700;
             color: var(--color-main);
             margin-bottom: 25px;
         }
 
         .concept-body {
-            font-family: var(--font-serif);
-            font-size: 1.1rem; 
+            font-size: 1.05rem; 
             color: var(--color-muted);
+            font-weight: 400;
         }
 
         /* -------------------------------------------------------------------------
@@ -421,20 +404,19 @@
         }
 
         .service-card h3 {
-            font-family: var(--font-serif);
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--color-main);
             margin-bottom: 22px;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.1em;
         }
 
         .service-card p {
-            font-family: var(--font-serif);
-            font-size: 1.05rem; 
+            font-size: 1.0rem; 
             color: var(--color-muted);
             text-align: center; 
-            line-height: 1.9;
+            line-height: 1.85;
+            font-weight: 400;
         }
 
         @media (max-width: 768px) {
@@ -443,7 +425,7 @@
                 gap: 30px;
             }
             .service-text-box { padding: 35px 20px; }
-            .service-card h3 { font-size: 1.25rem; } 
+            .service-card h3 { font-size: 1.2rem; } 
         }
 
         /* -------------------------------------------------------------------------
@@ -470,27 +452,26 @@
 
         .about-table th, .about-table td {
             padding: 30px 20px;
-            font-size: 1.05rem; 
+            font-size: 1.0rem; 
             text-align: center; 
         }
 
         .about-table th {
-            font-family: var(--font-serif);
             width: 100%;
             display: block; 
             font-weight: 700;
-            color: var(--color-accent); /* 見出し項目はアクセントのゴールド */
-            letter-spacing: 0.2em;
+            color: var(--color-accent);
+            letter-spacing: 0.18em;
             padding-bottom: 10px;
         }
 
         .about-table td {
-            font-family: var(--font-serif);
             width: 100%;
             display: block;
             color: var(--color-main);
             padding-top: 10px;
             padding-bottom: 35px;
+            font-weight: 400;
         }
 
         .about-purpose-list {
@@ -503,14 +484,14 @@
         .about-purpose-list li {
             margin-bottom: 10px;      
             list-style-position: outside; 
-            color: var(--color-muted); /* 箇条書きは少し落ち着いた色に */
+            color: var(--color-muted);
         }
 
         .about-table td a {
-            font-family: var(--font-sans);
             color: var(--color-main);
             text-decoration: underline;
             transition: color 0.3s;
+            font-weight: 500;
         }
         
         .about-table td a:hover {
@@ -521,8 +502,8 @@
            FOOTER
         ------------------------------------------------------------------------- */
         footer {
-            background-color: var(--color-main); /* フッター背景は濃い墨色 */
-            color: var(--color-bg); /* フッター内のベース文字は明るいベージュ */
+            background-color: var(--color-main); 
+            color: var(--color-bg); 
             padding: 80px 0 50px 0;
             font-size: 0.75rem;
         }
@@ -536,16 +517,14 @@
         }
 
         .footer-brand h4 {
-            font-family: var(--font-serif);
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            letter-spacing: 0.3em;
+            letter-spacing: 0.25em;
             margin-bottom: 10px;
             color: var(--color-bg);
         }
 
         .footer-brand p {
-            font-family: var(--font-sans);
             color: var(--color-sub);
             font-size: 0.7rem;
             letter-spacing: 0.15em;
@@ -558,7 +537,6 @@
         }
 
         .footer-links a {
-            font-family: var(--font-sans);
             color: var(--color-sub);
             text-decoration: none;
             transition: color 0.3s;
@@ -571,7 +549,6 @@
         }
 
         .copyright {
-            font-family: var(--font-sans);
             color: var(--color-sub);
             font-size: 0.7rem;
             letter-spacing: 0.1em;
