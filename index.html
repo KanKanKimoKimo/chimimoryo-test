@@ -138,7 +138,65 @@
         }
 
         /* -------------------------------------------------------------------------
-           HERO SECTION
+           ① OPENING TEXT ANIMATION SECTION
+        ------------------------------------------------------------------------- */
+        .opening-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-bg);
+            position: relative;
+        }
+
+        .opening-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1.5;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--color-main);
+        }
+
+        /* 文字ごとのアニメーション遅延設定 */
+        .opening-title span {
+            display: block;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+        }
+        .opening-title .word-1 { animation-delay: 0.2s; }
+        .opening-title .word-2 { animation-delay: 0.5s; }
+        .opening-title .word-3 { animation-delay: 0.8s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* スクロールを促す案内文 */
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            opacity: 0.6;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: translateY(0); }
+            50% { opacity: 0.7; transform: translateY(5px); }
+        }
+
+        @media (max-width: 768px) {
+            .opening-title { font-size: 2.2rem; }
+        }
+
+        /* -------------------------------------------------------------------------
+           HERO SECTION (MAIN CONTENT START)
         ------------------------------------------------------------------------- */
         .hero {
             min-height: 80vh;
@@ -146,7 +204,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 160px 0 100px 0;
+            padding: 100px 0 100px 0;
         }
 
         .hero-inner {
@@ -154,12 +212,12 @@
             flex-direction: column;
             align-items: center;
             gap: 50px;
-            max-width: 1200px; /* 画像幅100%に合わせるため枠を拡張 */
+            max-width: 1200px; 
             width: 100%;
         }
 
         .hero-text {
-            max-width: 800px;
+            max-width: 1000px; /* ② 横幅を800pxから1000pxに拡大 */
             width: 100%;
         }
 
@@ -168,7 +226,7 @@
             font-weight: 400;
             text-transform: uppercase;
             letter-spacing: 0.4em;
-            color: var(--color-accent);
+            color: var(--color-main);
             display: block;
             margin-bottom: 20px;
             text-indent: 0.4em;
@@ -183,17 +241,16 @@
         }
 
         .hero-text p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--color-main);
-            max-width: 600px;
+            max-width: 900px; /* ② 横幅を600pxから900pxに拡大 */
             margin: 0 auto;
             text-align: center;
         }
 
-        /* 【変更】画像横幅を100%にし、縦幅をスタイリッシュに狭める */
         .hero-image-wrap {
             width: 100%;
-            height: 260px; /* 350pxから260pxへ縮小 */
+            height: 260px; 
             border-radius: 4px;
             overflow: hidden;
             border: 1px solid var(--color-sub);
@@ -201,7 +258,7 @@
 
         @media (max-width: 768px) {
             .hero-text h1 { font-size: 1.8rem; }
-            .hero-image-wrap { height: 160px; } /* スマホ時も220pxから160pxへ縮小 */
+            .hero-image-wrap { height: 160px; } 
         }
 
         /* -------------------------------------------------------------------------
@@ -216,38 +273,40 @@
             margin-bottom: 80px;
         }
 
+        /* ③ 「理念」「事業内容」「会社概要」の文字サイズを1.6remから2.2remへ大きく変更 */
         .section-title {
-            font-size: 1.6rem;
+            font-size: 2.2rem;
             font-weight: 700;
             letter-spacing: 0.25em;
             text-indent: 0.25em;
+            margin-top: 5px;
         }
 
         /* -------------------------------------------------------------------------
            CONCEPT SECTION
         ------------------------------------------------------------------------- */
         .concept-text-wrap {
-            max-width: 650px;
+            max-width: 950px; /* ② 横幅を650pxから950pxに拡大 */
             margin: 0 auto;
         }
 
         .concept-lead {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             line-height: 2.2;
-            margin-bottom: 35px;
+            margin-bottom: 45px;
             font-weight: 700;
         }
 
         .concept-body {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         /* -------------------------------------------------------------------------
-           SERVICES SECTION (FOCUS CARD DESIGN)
+           SERVICES SECTION (④ PC:2枚横並び / SP:1枚縦並び)
         ------------------------------------------------------------------------- */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(2, 1fr); /* ④ パソコンの時は固定で2枚ずつ横並び */
             gap: 40px;
             width: 100%;
         }
@@ -306,13 +365,13 @@
         .service-card p {
             font-size: 0.85rem;
             color: var(--color-main);
-            text-align: center; /* カード内の説明文も中央寄せ */
+            text-align: center; 
             line-height: 1.9;
         }
 
         @media (max-width: 768px) {
             .services-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* ④ スマホの時は1つずつ縦並び */
                 gap: 30px;
             }
             .service-text-box { padding: 30px 20px; }
@@ -322,7 +381,7 @@
            ABOUT SECTION (MINIMAL CENTERED TABLE)
         ------------------------------------------------------------------------- */
         .about-inner {
-            max-width: 800px;
+            max-width: 1000px; /* ② 横幅を800pxから1000pxに拡大 */
             margin: 0 auto;
             width: 100%;
         }
@@ -342,13 +401,13 @@
 
         .about-table th, .about-table td {
             padding: 30px 20px;
-            font-size: 0.9rem;
-            text-align: center; /* テーブルセル内も中央寄せ */
+            font-size: 0.95rem;
+            text-align: center; 
         }
 
         .about-table th {
             width: 100%;
-            display: block; /* スマホ・PC問わず縦並び・中央寄せにするためblock化 */
+            display: block; 
             font-weight: 700;
             color: var(--color-accent);
             letter-spacing: 0.2em;
@@ -363,18 +422,17 @@
         }
 
         .about-purpose-list {
-            text-align: left;         /* テキストを左寄せに */
-            max-width: 600px;         /* 横に広がりすぎないよう幅を制限 */
-            margin: 0 auto;           /* リストのブロック自体は中央に配置 */
-            padding-left: 20px;       /* 番号を表示するスペースを確保 */
+            text-align: left;         
+            max-width: 900px;         /* ② 横幅を600pxから900pxに拡大 */
+            margin: 0 auto;           
+            padding-left: 20px;       
         }
 
         .about-purpose-list li {
-            margin-bottom: 10px;      /* 行間の微調整（読みやすさ向上） */
-            list-style-position: outside; /* 番号を外側に配置し、2行目以降もきれいに揃える */
+            margin-bottom: 10px;      
+            list-style-position: outside; 
         }
 
-        /* お問い合わせリンクのカラー調整 */
         .about-table td a {
             color: var(--color-main);
             text-decoration: underline;
@@ -482,12 +540,21 @@
         </div>
     </header>
 
+    <!-- ① WELCOME TO CHIMIMORYO オープニングアニメーションエリア -->
+    <div class="opening-hero">
+        <h1 class="opening-title">
+            <span class="word-1">WELCOME</span>
+            <span class="word-2">TO</span>
+            <span class="word-3">CHIMIMORYO</span>
+        </h1>
+        <div class="scroll-hint">SCROLL</div>
+    </div>
+
     <main>
         <!-- HERO SECTION -->
         <section class="hero wrapper">
             <div class="hero-inner">
                 <div class="hero-text fade-in-element">
-                    <span class="en-title">Welcome to Chimimoryo</span>
                     <h1>想いを、売れるカタチにする。</h1>
                     <p>私たちは、D2Cブランドを立ち上げ、成長を加速させる戦略的パートナーです。<br>単なるコンサルティングにとどまらず、商品開発・マーケティングの戦略設計から、EC運営、物流最適化、CRMによるファン醸成まで、チームの一員として御社のブランドに携わり、その歩みに並走します。</p>
                 </div>
@@ -507,7 +574,7 @@
                 <p class="concept-lead">
                     「売れる」を分析し、<br>「愛されるブランド」を設計する
                 </p>
-                <h2>なぜ、あなたのストーリーや商品が届かないのか。</h2>
+                <h2 style="margin-bottom: 20px;">なぜ、あなたのストーリーや商品が届かないのか。</h2>
                 <p class="concept-body">
                     品質にこだわり、妥協せず、いいものを作ったのに売れない。<br>残念ながら、世の中にはそんなブランドが数多く存在しています。
                     <br><br>そして多くの人は、その理由がわからず<br>大切なブランドの成長を諦めてしまいます。
@@ -517,7 +584,7 @@
             </div>
         </section>
 
-        <!-- SERVICES SECTION (GRID CARD DESIGN) -->
+        <!-- SERVICES SECTION -->
         <section class="section wrapper" id="services">
             <div class="section-header fade-in-element">
                 <span class="en-title">Our Business</span>
@@ -578,12 +645,13 @@
                         <span class="service-num">04</span>
                         <h3>D2Cブランド運営</h3>
                         <p>物流からCRMまで、ブランドの未来を丸ごと支える。
-                            <br><br>商品開発から物流管理、そして顧客との絆を深めるCRMまで、バックエンドの煩雑な業務こそ、ブランド成長の要です。
+                            <br><br>商品開発から物流管理、 tenderそして顧客との絆を深めるCRMまで、バックエンドの煩雑な業務こそ、ブランド成長の要です。
                             <br>私たちは実務の専門家として、泥臭いオペレーションの細部までを徹底的に最適化。
-                            <br>「ブランドの想いを届ける」までの道のりを、ゼロから作り上げます。
-</p>
+                            <br>「ブランドの想いを届ける」までの道のりを、ゼロから作り上げます。</p>
                     </div>
                 </div>
+            </div>
+        </section>
 
         <!-- ABOUT SECTION -->
         <section class="section wrapper" id="about">
@@ -611,7 +679,6 @@
                             </ol>
                         </td>
                     </tr>
-                    <!-- 【追加】お問い合わせ先の行 -->
                     <tr>
                         <th>お問い合わせ先</th>
                         <td><a href="mailto:info@chimimoryo.jp">info@chimimoryo.jp</a></td>
