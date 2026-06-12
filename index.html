@@ -138,7 +138,7 @@
         }
 
         /* -------------------------------------------------------------------------
-           ① OPENING TEXT ANIMATION SECTION
+           OPENING TEXT ANIMATION SECTION
         ------------------------------------------------------------------------- */
         .opening-hero {
             height: 100vh;
@@ -149,7 +149,6 @@
             position: relative;
         }
 
-        /* ① 太字(700)・黄色(accent)に変更 */
         .opening-title {
             font-size: 3.5rem;
             font-weight: 700; 
@@ -206,7 +205,8 @@
             align-items: center;
             justify-content: center;
             padding: 100px 0;
-            max-width: 100% !important; /* ⑤ 画像を100%にするため幅の制限を解除 */
+            width: 100%;
+            max-width: 100% !important; 
             padding-left: 0 !important;
             padding-right: 0 !important;
         }
@@ -222,12 +222,12 @@
         .hero-text {
             max-width: 1000px;
             width: 100%;
-            padding: 0 40px; /* 左右の余白を確保 */
+            padding: 0 40px; 
         }
 
-        /* ② 英語タイトルを黄色・太字に変更 */
+        /* ① 英語タイトル（CONCEPTなど）の文字サイズを大きく（1.5remに）変更 */
         .en-title {
-            font-size: 0.75rem;
+            font-size: 1.5rem; 
             font-weight: 700; 
             text-transform: uppercase;
             letter-spacing: 0.4em;
@@ -237,7 +237,7 @@
             text-indent: 0.4em;
         }
 
-        /* ④ メインコピーの上下に余白（margin）を追加 */
+        /* メインコピーの上下余白 */
         .hero-text h1 {
             font-size: 2.4rem;
             font-weight: 700;
@@ -247,7 +247,7 @@
             letter-spacing: 0.15em;
         }
 
-        /* ③ 本文の文字サイズを0.95remから1.1remに拡大 */
+        /* 本文の文字サイズ */
         .hero-text p {
             font-size: 1.1rem; 
             color: var(--color-main);
@@ -256,22 +256,24 @@
             text-align: center;
         }
 
-        /* ⑤ 1枚目の画像を端末の横幅100%（両端まで届く）に修正 */
+        /* ③ 右寄り・見切れを解消する画面横幅100%中央寄せの修正 */
         .hero-image-wrap {
-            width: 100vw; 
+            width: 100%;
+            max-width: 100%;
             height: 350px; 
             overflow: hidden;
             border-top: 1px solid var(--color-sub);
             border-bottom: 1px solid var(--color-sub);
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         @media (max-width: 768px) {
             .hero-text { padding: 0 20px; }
             .hero-text h1 { font-size: 1.8rem; margin-top: 25px; margin-bottom: 35px; }
             .hero-image-wrap { height: 200px; } 
+            .en-title { font-size: 1.2rem; } /* スマホでもバランス良く大きめに */
         }
 
         /* -------------------------------------------------------------------------
@@ -309,14 +311,12 @@
             font-weight: 700;
         }
 
-        /* ③ 「なぜ、あなたのストーリー〜」の見出しサイズを本文と同じ1.1rem（太字）に指定 */
         .concept-text-wrap h2 {
             font-size: 1.1rem; 
             font-weight: 700;
             margin-bottom: 20px;
         }
 
-        /* ③ 本文の文字サイズを1.1remに拡大 */
         .concept-body {
             font-size: 1.1rem; 
         }
@@ -360,19 +360,12 @@
             border-bottom: 1px solid var(--color-sub);
         }
 
+        /* ② 01〜04削除に伴う、テキストボックスの上部余白バランス調整 */
         .service-text-box {
-            padding: 40px 30px;
+            padding: 45px 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        .service-num {
-            font-size: 0.8rem;
-            color: var(--color-accent);
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            margin-bottom: 15px;
         }
 
         .service-card h3 {
@@ -382,7 +375,6 @@
             letter-spacing: 0.1em;
         }
 
-        /* ③ カード内の本文の文字サイズを1.1remに拡大 */
         .service-card p {
             font-size: 1.1rem; 
             color: var(--color-main);
@@ -395,7 +387,7 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-            .service-text-box { padding: 30px 20px; }
+            .service-text-box { padding: 35px 20px; }
         }
 
         /* -------------------------------------------------------------------------
@@ -420,7 +412,6 @@
             border-top: 1px solid var(--color-sub);
         }
 
-        /* ③ 会社概要の表内の文字サイズを1.1remに拡大 */
         .about-table th, .about-table td {
             padding: 30px 20px;
             font-size: 1.1rem; 
@@ -562,7 +553,7 @@
         </div>
     </header>
 
-    <!-- ① WELCOME TO CHIMIMORYO オープニングアニメーションエリア -->
+    <!-- WELCOME TO CHIMIMORYO オープニングアニメーションエリア -->
     <div class="opening-hero">
         <h1 class="opening-title">
             <span class="word-1">WELCOME</span>
@@ -573,12 +564,13 @@
 
     <main>
         <!-- HERO SECTION -->
-        <section class="hero wrapper">
+        <section class="hero">
             <div class="hero-inner">
                 <div class="hero-text fade-in-element">
                     <h1>想いを、売れるカタチにする。</h1>
                     <p>私たちは、D2Cブランドを立ち上げ、成長を加速させる戦略的パートナーです。<br>単なるコンサルティングにとどまらず、商品開発・マーケティングの戦略設計から、EC運営、物流最適化、CRMによるファン醸成まで、チームの一員として御社のブランドに携わり、その歩みに並走します。</p>
                 </div>
+                <!-- ③ 幅100%・中央寄せを強固にした画像コンテナ -->
                 <div class="hero-image-wrap fade-in-element">
                     <div class="no-image"></div>
                 </div>
@@ -598,7 +590,7 @@
                 <h2>なぜ、あなたのストーリーや商品が届かないのか。</h2>
                 <p class="concept-body">
                     品質にこだわり、妥協せず、いいものを作ったのに売れない。<br>残念ながら、世の中にはそんなブランドが数多く存在しています。
-                    <br><br>Scanningそして多くの人は、その理由がわからず<br>大切なブランドの成長を諦めてしまいます。
+                    <br><br>そして多くの人は、その理由がわからず<br>大切なブランドの成長を諦めてしまいます。
                     <br><br>私たちが目指すのは、自らの実践と経験にもとづいた確かな戦略と実行力で、そうしたブランドの想いを込めた商品を、正しい人に正しく届けること。
                     <br><br>ただ商品を売るだけのマーケティングや、顧客の想いにそぐわないコンサルティングではありません。<br>ブランドの「こだわり」を、消費者の「熱狂」に変え、長く愛されるブランドを築きます。
                 </p>
@@ -614,7 +606,7 @@
 
             <div class="services-grid">
                 
-                <!-- Card 01 -->
+                <!-- Card 01 (② 01の数字を削除) -->
                 <div class="service-card fade-in-element">
                     <div class="service-img-box">
                         <div class="no-image"></div>
@@ -627,7 +619,7 @@
                     </div>
                 </div>
 
-                <!-- Card 02 -->
+                <!-- Card 02 (② 02の数字を削除) -->
                 <div class="service-card fade-in-element">
                     <div class="service-img-box">
                         <div class="no-image"></div>
@@ -640,7 +632,7 @@
                     </div>
                 </div>
 
-                <!-- Card 03 -->
+                <!-- Card 03 (② 03の数字を削除) -->
                 <div class="service-card fade-in-element">
                     <div class="service-img-box">
                         <div class="no-image"></div>
@@ -654,7 +646,7 @@
                     </div>
                 </div>
 
-                <!-- Card 04 -->
+                <!-- Card 04 (② 04の数字を削除) -->
                 <div class="service-card fade-in-element">
                     <div class="service-img-box">
                         <div class="no-image"></div>
@@ -662,7 +654,7 @@
                     <div class="service-text-box">
                         <h3>D2Cブランド運営</h3>
                         <p>物流からCRMまで、ブランドの未来を丸ごと支える。
-                            <br><br>商品開発から物流管理、そして顧客との絆を深めるCRMまで、バックエンドの煩雑な業務こそ、ブランド成長の要です。
+                            <br><br>商品開発から物流管理、 tenderそして顧客との絆を深めるCRMまで、バックエンドの煩雑な業務こそ、ブランド成長の要です。
                             <br>私たちは実務の専門家として、泥臭いオペレーションの細部までを徹底的に最適化。
                             <br>「ブランドの想いを届ける」までの道のりを、ゼロから作り上げます。</p>
                     </div>
