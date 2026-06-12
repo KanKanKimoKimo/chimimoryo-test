@@ -249,27 +249,29 @@
 
        /* 塊の最下部、かつCONCEPTの文字の中間に移動した幅100%の画像コンテナ */
 　　　　　.hero-image-wrap {
- 　　　　　   width: 100vw; /* 端末の画面の横幅100%に指定 */
-　　　　　    position: relative;
-  　　　　　  left: 50%;
-   　　　　　 transform: translateX(-50%); /* 親要素を無視して画面中央にフィットさせる */
-   　　　　　 height: 350px; 
-   　　　　　 overflow: hidden;
-   　　　　　 border-top: 1px solid var(--color-sub);
-   　　　　　 border-bottom: 1px solid var(--color-sub);
-   　　　　　 display: flex;
-   　　　　　 justify-content: center;
-   　　　　　 align-items: center;
-  　　　　　  margin-bottom: 140px;
-　　　　　}
+    width: 100vw; /* 端末の画面の横幅100%に指定 */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); /* 親要素を無視して画面中央にフィットさせる */
+    height: 90px; /* ★縦幅を350pxから1/4の「90px」に変更 */
+    overflow: hidden;
+    border-top: 1px solid var(--color-sub);
+    border-bottom: 1px solid var(--color-sub);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 140px;
+}
 
         @media (max-width: 768px) {
-            .hero { padding: 40px 0 0 0; }
-            .hero-text { padding: 0 20px; margin-top: 0; margin-bottom: 60px; }
-            .hero-text h1 { font-size: 1.8rem; margin-top: 25px; margin-bottom: 35px; }
-            .hero-image-wrap { height: 200px; margin-bottom: 90px; } 
-        }
-
+    .hero { padding: 40px 0 0 0; }
+    .hero-text { padding: 0 20px; margin-top: 0; margin-bottom: 60px; }
+    .hero-text h1 { font-size: 1.8rem; margin-top: 25px; margin-bottom: 35px; }
+    .hero-image-wrap { 
+        height: 60px; /* ★スマホ時の縦幅を200pxから約1/4の「60px」に変更 */
+        margin-bottom: 90px; 
+    } 
+}
         /* -------------------------------------------------------------------------
            SECTION GENERAL
         ------------------------------------------------------------------------- */
